@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainViewFragment">
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <RelativeLayout
+            android:layout_below="@id/topNav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+
+                android:id="@+id/NewCard"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edit_text_custom">
+
+                <TextView
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/AddNewTask" />
+
+                <ImageButton
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/add_me_icon" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/upcomingTitle"
+                android:layout_below="@id/NewCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Upcoming"
+                android:textSize="24dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/open_sans_variable_font_wdth"/>
+
+            <RelativeLayout
+                android:id="@+id/UpcomingCard"
+                android:layout_below="@id/upcomingTitle"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/upcoming_background_custom"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/imagefamer"/>
+
+                <TextView
+                    android:id="@+id/titleCard"
+                    android:layout_toRightOf="@id/image"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/CardViewTitle"/>
+
+                <TextView
+                    android:id="@+id/due"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Due:"
+                    android:textSize="15dp"
+                    android:layout_below="@id/titleCard"
+                    android:layout_toRightOf="@id/image"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/CardDate"
+                    android:textSize="15dp"
+                    android:layout_below="@id/titleCard"
+                    android:layout_toRightOf="@id/due"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="Details"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@color/lighter_green"/>
+
+                <ImageView
+                    android:id="@+id/categoryImage"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"/>
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/categoriesTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+
+                android:text="@string/Categories"
+                android:layout_below="@id/UpcomingCard"
+                android:layout_marginTop="20dp"
+                android:textSize="24dp"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/black"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:scrollbars="none"
+                android:id="@+id/categoryRecyclerFragView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_below="@id/categoriesTxt"
+                />
+
+            <TextView
+                android:id="@+id/TimeTxt"
+                android:layout_below="@id/categoryRecyclerFragView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Timer"
+                android:textSize="24dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/open_sans_variable_font_wdth"/>
+
+            <TextView
+                android:id="@+id/Timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textSize="35dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/TimeTxt"
+                android:text="00:00:000"/>
+            <RelativeLayout
+                android:layout_below="@id/Timer"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/StartTime"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:text="Start"
+                    android:background="@drawable/list_task_item"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/EndTime"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toRightOf="@+id/StartTime"
+                    android:text="Stop"
+                    android:background="@drawable/list_task_item"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

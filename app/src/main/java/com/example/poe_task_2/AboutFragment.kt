@@ -1,0 +1,105 @@
+package com.example.poe_task_2
+
+
+import android.os.Bundle
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
+import androidx.fragment.app.Fragment
+
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
+
+/**
+ * A simple [Fragment] subclass.
+ * Use the [AboutFragment.newInstance] factory method to
+ * create an instance of this fragment.
+ */
+class AboutFragment : Fragment() {
+    // TODO: Rename and change types of parameters
+    private lateinit var MinimumDailyGoals: EditText
+    private lateinit var MaximumDailyGoals: EditText
+    private lateinit var MaxInsertButton: AppCompatButton
+    private lateinit var MinInsertButton: AppCompatButton
+    private lateinit var goals: Goal
+    private var maximum: Int = 0
+    private var minimum: Int = 0
+
+    private val TAG = "AboutFragment"
+    private var param1: String? = null
+    private var param2: String? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
+        }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view: View = inflater.inflate(R.layout.fragment_about, container, false)
+        init(view)
+        return view
+    }
+
+    private fun init(view: View) {
+        MinimumDailyGoals = view.findViewById(R.id.setMinGoals)
+        MaximumDailyGoals = view.findViewById(R.id.setMaxGoals)
+        MaxInsertButton = view.findViewById(R.id.insertMaxButton)
+        MinInsertButton = view.findViewById(R.id.insertMinButton)
+        goals = Goal()
+
+        MaxInsertButton.setOnClickListener {
+            maximum = MaximumDailyGoals.text.toString().toInt()
+            Log.d(TAG, "onClick: $maximum")
+            if (maximum >= minimum || maximum == 0) {
+                goals.setMaximumGoal(maximum)
+                Toast.makeText(view.context, "Coolbeans\uD83E\uDED8", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(view.context, "The maximum can't be less than the minimum", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        MinInsertButton.setOnClickListener {//inserts the minimum class
+            Log.d(TAG, "onClick: ")
+            minimum = MinimumDailyGoals.text.toString().toInt()
+            if (minimum <= maximum) {
+                goals.setMinimumGoal(minimum)
+                Toast.makeText(view.context, "Coolbeans\uD83E\uDED8", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(view.context, "The maximum can't be less than the minimum", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+
+    companion object {
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param param1 Parameter 1.
+         * @param param2 Parameter 2.
+         * @return A new instance of fragment AboutFragment.
+         */
+        // TODO: Rename and change types and number of parameters
+        @JvmStatic
+        fun newInstance(param1: String, param2: String) =
+            AboutFragment().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
+                }
+            }
+    }
+}

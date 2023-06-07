@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "223381567302",
+    "project_id": "poe-task-2-c6fe1",
+    "storage_bucket": "poe-task-2-c6fe1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:223381567302:android:f466bac8e4c67c70fbd747",
+        "android_client_info": {
+          "package_name": "com.example.poe_task_2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "223381567302-tt3fevmelfjd4ng8imd2i6ge9kcqanpn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc9t24ePBmSC4_Py2yk2_sQAGwg_GHufs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "223381567302-tt3fevmelfjd4ng8imd2i6ge9kcqanpn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
